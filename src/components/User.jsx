@@ -1,15 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useState } from "react";
+import { GET_USER } from "../graphql/queries";
 
-const GET_USER = gql`
-  query getUser($id: ID!) {
-    user(id: 2) {
-      id
-      name
-      email
-    }
-  }
-`;
 const User = () => {
   const [id, setId] = useState(1);
   const changeHandler = (e) => {
