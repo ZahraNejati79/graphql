@@ -4,16 +4,14 @@ import "./index.css";
 import App from "./App";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-const client = ApolloClient({
+const client = new ApolloClient({
   uri: "https://graphqlzero.almansi.me/api",
   cache: new InMemoryCache(),
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </React.StrictMode>
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>
 );
